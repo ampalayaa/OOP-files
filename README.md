@@ -4,5 +4,5 @@ Members:
 Antonio Linsangan IV,
 Bryand Jones Lachica Bacani,
 Carla Jane Lagan,
-Frances Bea Magdayaw,
+Frances Bea Magdayao,
 Meighel Nicolle Padon

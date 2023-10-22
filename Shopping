@@ -29,7 +29,7 @@ class Cart:
         self.items = []
 
     def add_to_cart(self, product, quantity):
-        # Create a dictionary to represent an item in the cart
+       
         item = {"product": product, "quantity": quantity}
         self.items.append(item)
         print(f"{quantity} {product.name}(s) added to the cart.")

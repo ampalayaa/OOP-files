@@ -19,7 +19,7 @@ class Order:
         self.order_id = order_id
         self.customer = customer
         self.cart = cart
-        #hello world
+        
 
     def place_order(self)
         print(f"Order placed by{self.customer.name} with order ID {self.order_id}.")
@@ -48,3 +48,58 @@ class Cart:
             quantity = item["quantity"]
             total += product.price * quantity
         return total
+    
+class Payment:
+    def process_payment(self, order, total_amount):
+        print(f"Payment of ₱{total_amount:.2f} processed for order {order.order_id}")
+
+
+if __name__ == "_main_":
+    customer_id = int(input("Enter Customer ID: "))
+    name = input("Enter Customer Name: ")
+    email = input("Enter Customer Email: ")
+    password = input("Enter Customer Password: ")
+
+    customer = Customer(customer_id, name, email, password)
+    customer.welcoming()
+
+    cart = Cart()
+
+    while True:
+        action = input(
+            "Enter 'add' to add a product to the cart, 'remove' to remove a product, or 'checkout' to complete the purchase: ")
+
+        if action == 'add':
+            product_id = int(input("Enter Product ID: "))
+            name = input("Enter Product Name: ")
+            price = float(input("Enter Product Price: "))
+            quantity = int(input("Enter Quantity: "))
+            product = Product(product_id, name, price)
+            cart.add_to_cart(product, quantity)
+
+        elif action == 'remove':
+            product_id = int(input("Enter Product ID of the product to remove: "))
+            product_to_remove = next((item["product"] for item in cart.items if item["product"].product_id == product_id), None)
+            if product_to_remove:
+                cart.remove_from_cart(product_to_remove)
+            else:
+                print("Product not found in the cart.")
+
+        elif action == 'checkout':
+            total = cart.calculate_total()
+            print(f"Total amount to pay: ${total:.2f}")
+            break
+        elif action == 'stop':
+            print("Stopping the process of adding/removing products.")
+            break
+
+        else:
+            print("Invalid action. Please enter 'add', 'remove', 'checkout', or 'stop'.")
+            
+    order_id = 1
+    order = Order(order_id, customer, cart)
+    order.place_order()
+
+    payment = Payment()
+    total_amount = cart.calculate_total()
+    payment.process_payment(order, total_amount)

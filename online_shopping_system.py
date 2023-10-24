@@ -13,3 +13,16 @@ class Product:
         self.product_id = product_id
         self.name = name
         self.price = price
+
+class Order:
+    def __init__(self, order_id, customer, cart):
+        
+        self.order_id = order_id
+        self.customer = customer
+        self.cart = cart
+    
+    def place_order(self):
+        print(f"Order placed by {self.customer.name} with order ID {self.order_id}.")
+        print("Ordered items:")
+        for item in self.cart.items:
+            print(f"{item['quantity']} x {item['product'].name}")

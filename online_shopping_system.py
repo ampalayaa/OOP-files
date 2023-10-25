@@ -26,3 +26,27 @@ class Order:
         print("Ordered items:")
         for item in self.cart.items:
             print(f"{item['quantity']} x {item['product'].name}")
+            
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add_to_cart(self, product, quantity):
+        # Create a dictionary to represent an item in the cart
+        item = {"product": product, "quantity": quantity}
+        self.items.append(item)
+        print(f"{quantity} {product.name}(s) added to the cart.")
+
+    def remove_from_cart(self, product):
+        for item in self.items:
+            if item["product"] == product:
+                self.items.remove(item)
+                print(f"{product.name} removed from the cart.")
+
+    def calculate_total(self):
+        total = 0
+        for item in self.items:
+            product = item["product"]
+            quantity = item["quantity"]
+            total += product.price * quantity
+        return total

@@ -1,3 +1,15 @@
+# Project Description
+A simple website for Cozy Cup Cafe containing homepage, menu, about, and contact using basic HTML and CSS.
+
+## Features
+- __User-friendly interface__ : Simple and Classic
+- __Easy Menu Navigation__ : Two Separate Menu for Drinks and Pastries
+- __Easy to Contact__ : Reachable Email
+
+## Screen Captures
+__Lorem ipsum dolor__
+
+## About Authors
 <p>Author 1</p> <img src="https://github.com/Kenjicci/cozycup-cafe/blob/main/img/Kenjicci.jpg" width="150" style="border-radius: 50%;" alt="Kenjicci Photo">
 Name: Ken Cinco ☕
 
